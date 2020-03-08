@@ -18,7 +18,7 @@ This is just a basic example.
 
 Include this repository as a module in your existing terraform code:
 
-```terraform
+```hcl
 module "efs" {
   source      = "JamesWoolfenden/efs/aws"
   version     = "0.0.4"
