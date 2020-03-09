@@ -38,7 +38,7 @@ module "efs" {
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:-----:|
 | common\_tags | This is to help you add tags to your cloud objects | `map` | n/a | yes |
-| efs | To create a shared file share | `map` | <pre>{<br>  "creation_token": "my-product",<br>  "encrypted": false,<br>  "kms_key_id": "",<br>  "performance_mode": "generalPurpose",<br>  "provisioned_throughput_in_mibps": 0,<br>  "throughput_mode": "bursting",<br>  "transition_to_ia": "AFTER_30_DAYS"<br>}<br></pre> | no |
+| efs | To create a shared file share | `map` | <pre>{<br>  "creation_token": "my-product",<br>  "encrypted": true,<br>  "kms_key_id": "",<br>  "performance_mode": "generalPurpose",<br>  "provisioned_throughput_in_mibps": 0,<br>  "throughput_mode": "bursting",<br>  "transition_to_ia": "AFTER_30_DAYS"<br>}<br></pre> | no |
 | mounts | Subnets to create mount points for | `list` | <pre>[<br>  {<br>    "ip_address": "",<br>    "security_groups": [],<br>    "subnet_id": ""<br>  }<br>]<br></pre> | no |
 
 ## Outputs
