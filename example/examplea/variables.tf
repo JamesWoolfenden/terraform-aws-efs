@@ -1,11 +1,11 @@
 variable "common_tags" {
   description = "This is to help you add tags to your cloud objects"
-  type        = map
+  type        = map(any)
 }
 
 variable "efs" {
   description = "To create a shared file share"
-  type        = map
+  type        = map(any)
 
   default = {
     creation_token                  = "my-product"
@@ -19,7 +19,7 @@ variable "efs" {
 }
 
 variable "mounts" {
-  type        = list
+  type        = list(any)
   description = "Subnets to create mount points for"
   default = [{
     subnet_id       = ""
