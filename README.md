@@ -40,13 +40,24 @@ No requirements.
 |------|---------|
 | aws | n/a |
 
+## Modules
+
+No Modules.
+
+## Resources
+
+| Name |
+|------|
+| [aws_efs_file_system](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/efs_file_system) |
+| [aws_efs_mount_target](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/efs_mount_target) |
+
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| common\_tags | This is to help you add tags to your cloud objects | `map` | n/a | yes |
-| efs | To create a shared file share | `map` | <pre>{<br>  "creation_token": "my-product",<br>  "encrypted": true,<br>  "kms_key_id": "",<br>  "performance_mode": "generalPurpose",<br>  "provisioned_throughput_in_mibps": 0,<br>  "throughput_mode": "bursting",<br>  "transition_to_ia": "AFTER_30_DAYS"<br>}</pre> | no |
-| mounts | Subnets to create mount points for | `list` | <pre>[<br>  {<br>    "ip_address": "",<br>    "security_groups": [],<br>    "subnet_id": ""<br>  }<br>]</pre> | no |
+| common\_tags | This is to help you add tags to your cloud objects | `map(any)` | n/a | yes |
+| efs | To create a shared file share | `map(any)` | <pre>{<br>  "creation_token": "my-product",<br>  "encrypted": true,<br>  "kms_key_id": "",<br>  "performance_mode": "generalPurpose",<br>  "provisioned_throughput_in_mibps": 0,<br>  "throughput_mode": "bursting",<br>  "transition_to_ia": "AFTER_30_DAYS"<br>}</pre> | no |
+| mounts | Subnets to create mount points for | `list(any)` | <pre>[<br>  {<br>    "ip_address": "",<br>    "security_groups": [],<br>    "subnet_id": ""<br>  }<br>]</pre> | no |
 
 ## Outputs
 
@@ -54,7 +65,6 @@ No requirements.
 |------|-------------|
 | mount | n/a |
 | sharedstore | n/a |
-
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
 ## Related Projects
