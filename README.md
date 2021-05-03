@@ -38,33 +38,33 @@ No requirements.
 
 | Name | Version |
 |------|---------|
-| aws | n/a |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | n/a |
 
 ## Modules
 
-No Modules.
+No modules.
 
 ## Resources
 
-| Name |
-|------|
-| [aws_efs_file_system](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/efs_file_system) |
-| [aws_efs_mount_target](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/efs_mount_target) |
+| Name | Type |
+|------|------|
+| [aws_efs_file_system.sharedstore](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/efs_file_system) | resource |
+| [aws_efs_mount_target.mount](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/efs_mount_target) | resource |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| common\_tags | This is to help you add tags to your cloud objects | `map(any)` | n/a | yes |
-| efs | To create a shared file share | `map(any)` | <pre>{<br>  "creation_token": "my-product",<br>  "encrypted": true,<br>  "kms_key_id": "",<br>  "performance_mode": "generalPurpose",<br>  "provisioned_throughput_in_mibps": 0,<br>  "throughput_mode": "bursting",<br>  "transition_to_ia": "AFTER_30_DAYS"<br>}</pre> | no |
-| mounts | Subnets to create mount points for | `list(any)` | <pre>[<br>  {<br>    "ip_address": "",<br>    "security_groups": [],<br>    "subnet_id": ""<br>  }<br>]</pre> | no |
+| <a name="input_common_tags"></a> [common\_tags](#input\_common\_tags) | This is to help you add tags to your cloud objects | `map(any)` | n/a | yes |
+| <a name="input_efs"></a> [efs](#input\_efs) | To create a shared file share | `map(any)` | <pre>{<br>  "creation_token": "my-product",<br>  "encrypted": true,<br>  "kms_key_id": "",<br>  "performance_mode": "generalPurpose",<br>  "provisioned_throughput_in_mibps": 0,<br>  "throughput_mode": "bursting",<br>  "transition_to_ia": "AFTER_30_DAYS"<br>}</pre> | no |
+| <a name="input_mounts"></a> [mounts](#input\_mounts) | Subnets to create mount points for | `list(any)` | <pre>[<br>  {<br>    "ip_address": "",<br>    "security_groups": [],<br>    "subnet_id": ""<br>  }<br>]</pre> | no |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
-| mount | n/a |
-| sharedstore | n/a |
+| <a name="output_mount"></a> [mount](#output\_mount) | n/a |
+| <a name="output_sharedstore"></a> [sharedstore](#output\_sharedstore) | n/a |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
 ## Related Projects
