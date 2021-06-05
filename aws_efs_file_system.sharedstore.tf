@@ -1,4 +1,5 @@
 resource "aws_efs_file_system" "sharedstore" {
+  # checkov:skip=CKV2_AWS_18: ADD REASON
   creation_token = var.efs["creation_token"]
 
   lifecycle_policy {
