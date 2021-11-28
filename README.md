@@ -56,7 +56,7 @@ No modules.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_common_tags"></a> [common\_tags](#input\_common\_tags) | This is to help you add tags to your cloud objects | `map(any)` | n/a | yes |
-| <a name="input_efs"></a> [efs](#input\_efs) | To create a shared file share | `map(any)` | <pre>{<br>  "creation_token": "my-product",<br>  "encrypted": true,<br>  "kms_key_id": "",<br>  "performance_mode": "generalPurpose",<br>  "provisioned_throughput_in_mibps": 0,<br>  "throughput_mode": "bursting",<br>  "transition_to_ia": "AFTER_30_DAYS"<br>}</pre> | no |
+| <a name="input_efs"></a> [efs](#input\_efs) | To create a shared file share | <pre>object({<br>    creation_token                  = string<br>    transition_to_ia                = string<br>    kms_key_id                      = string<br>    encrypted                       = bool<br>    performance_mode                = string<br>    provisioned_throughput_in_mibps = number<br>    throughput_mode                 = string<br>  })</pre> | n/a | yes |
 | <a name="input_mounts"></a> [mounts](#input\_mounts) | Subnets to create mount points for | `list(any)` | <pre>[<br>  {<br>    "ip_address": "",<br>    "security_groups": [],<br>    "subnet_id": ""<br>  }<br>]</pre> | no |
 
 ## Outputs

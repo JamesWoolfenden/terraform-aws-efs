@@ -5,17 +5,15 @@ variable "common_tags" {
 
 variable "efs" {
   description = "To create a shared file share"
-  type        = map(any)
-
-  default = {
-    creation_token                  = "my-product"
-    transition_to_ia                = "AFTER_30_DAYS"
-    kms_key_id                      = ""
-    encrypted                       = true
-    performance_mode                = "generalPurpose"
-    provisioned_throughput_in_mibps = 0
-    throughput_mode                 = "bursting"
-  }
+  type = object({
+    creation_token                  = string
+    transition_to_ia                = string
+    kms_key_id                      = string
+    encrypted                       = bool
+    performance_mode                = string
+    provisioned_throughput_in_mibps = number
+    throughput_mode                 = string
+  })
 }
 
 variable "mounts" {
