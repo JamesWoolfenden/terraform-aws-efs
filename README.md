@@ -30,16 +30,15 @@ module "efs" {
 ```
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
-
 ## Requirements
 
 No requirements.
 
 ## Providers
 
-| Name                                             | Version |
-| ------------------------------------------------ | ------- |
-| <a name="provider_aws"></a> [aws](#provider_aws) | n/a     |
+| Name | Version |
+|------|---------|
+| <a name="provider_aws"></a> [aws](#provider\_aws) | n/a |
 
 ## Modules
 
@@ -47,26 +46,25 @@ No modules.
 
 ## Resources
 
-| Name                                                                                                                           | Type     |
-| ------------------------------------------------------------------------------------------------------------------------------ | -------- |
+| Name | Type |
+|------|------|
 | [aws_efs_file_system.sharedstore](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/efs_file_system) | resource |
-| [aws_efs_mount_target.mount](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/efs_mount_target)     | resource |
+| [aws_efs_mount_target.mount](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/efs_mount_target) | resource |
 
 ## Inputs
 
-| Name                                                               | Description                                        | Type                                                                                                                                                                                                                                      | Default                                                                                            | Required |
-| ------------------------------------------------------------------ | -------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | :------: |
-| <a name="input_common_tags"></a> [common_tags](#input_common_tags) | This is to help you add tags to your cloud objects | `map(any)`                                                                                                                                                                                                                                | n/a                                                                                                |   yes    |
-| <a name="input_efs"></a> [efs](#input_efs)                         | To create a shared file share                      | <pre>object({<br> creation_token = string<br> transition_to_ia = string<br> kms_key_id = string<br> encrypted = bool<br> performance_mode = string<br> provisioned_throughput_in_mibps = number<br> throughput_mode = string<br> })</pre> | n/a                                                                                                |   yes    |
-| <a name="input_mounts"></a> [mounts](#input_mounts)                | Subnets to create mount points for                 | `list(any)`                                                                                                                                                                                                                               | <pre>[<br> {<br> "ip_address": "",<br> "security_groups": [],<br> "subnet_id": ""<br> }<br>]</pre> |    no    |
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| <a name="input_common_tags"></a> [common\_tags](#input\_common\_tags) | This is to help you add tags to your cloud objects | `map(any)` | n/a | yes |
+| <a name="input_efs"></a> [efs](#input\_efs) | To create a shared file share | <pre>object({<br>    creation_token                  = string<br>    transition_to_ia                = string<br>    kms_key_id                      = string<br>    encrypted                       = bool<br>    performance_mode                = string<br>    provisioned_throughput_in_mibps = number<br>    throughput_mode                 = string<br>  })</pre> | n/a | yes |
+| <a name="input_mounts"></a> [mounts](#input\_mounts) | Subnets to create mount points for | `list(any)` | <pre>[<br>  {<br>    "ip_address": "",<br>    "security_groups": [],<br>    "subnet_id": ""<br>  }<br>]</pre> | no |
 
 ## Outputs
 
-| Name                                                                 | Description |
-| -------------------------------------------------------------------- | ----------- |
-| <a name="output_mount"></a> [mount](#output_mount)                   | n/a         |
-| <a name="output_sharedstore"></a> [sharedstore](#output_sharedstore) | n/a         |
-
+| Name | Description |
+|------|-------------|
+| <a name="output_mount"></a> [mount](#output\_mount) | n/a |
+| <a name="output_sharedstore"></a> [sharedstore](#output\_sharedstore) | n/a |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
 ## Related Projects
