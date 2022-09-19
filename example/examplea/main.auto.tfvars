@@ -3,6 +3,6 @@ common_tags = {
 
 mounts = [{
   subnet_id       = "subnet-f60eff81"
-  ip_address      = ""
+  ip_address      = "10.0.0.8"
   security_groups = []
 }]
