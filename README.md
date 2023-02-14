@@ -89,7 +89,9 @@ resource "aws_iam_policy" "terraform_pike" {
             "Action": [
                 "ec2:DescribeAccountAttributes"
             ],
-            "Resource": "*"
+            "Resource": [
+                "*"
+            ]
         },
         {
             "Sid": "VisualEditor1",
@@ -103,7 +105,9 @@ resource "aws_iam_policy" "terraform_pike" {
                 "elasticfilesystem:TagResource",
                 "elasticfilesystem:UntagResource"
             ],
-            "Resource": "*"
+            "Resource": [
+                "*"
+            ]
         },
         {
             "Sid": "VisualEditor2",
@@ -116,7 +120,9 @@ resource "aws_iam_policy" "terraform_pike" {
                 "kms:GenerateDataKey*",
                 "kms:ReEncrypt*"
             ],
-            "Resource": "*"
+            "Resource": [
+                "*"
+            ]
         }
     ]
 })
