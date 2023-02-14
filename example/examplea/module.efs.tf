@@ -3,7 +3,7 @@ module "efs" {
   common_tags = var.common_tags
   mounts      = var.mounts
   efs = {
-#checkov:skip=CKV_SECRET_6:required    
+    #checkov:skip=CKV_SECRET_6:required    
     creation_token                  = "my-product"
     transition_to_ia                = "AFTER_30_DAYS"
     kms_key_id                      = aws_kms_key.example.arn
