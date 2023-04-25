@@ -9,5 +9,5 @@ output "mount" {
 }
 
 output "access_point" {
-  value= aws_efs_access_point.pike
+  value = aws_efs_access_point.pike
 }

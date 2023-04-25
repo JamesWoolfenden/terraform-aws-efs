@@ -1,7 +1,7 @@
 resource "aws_efs_access_point" "pike" {
   file_system_id = aws_efs_file_system.sharedstore.id
   root_directory {
-    path=var.root_path
+    path = var.root_path
   }
   posix_user {
     gid = var.posix_user.gid
@@ -10,14 +10,14 @@ resource "aws_efs_access_point" "pike" {
 }
 
 variable "root_path" {
-    type=string
-    default = "/data"
+  type    = string
+  default = "/data"
 }
 
 variable "posix_user" {
-  type=object({
-    gid=number
-    uid=number
+  type = object({
+    gid = number
+    uid = number
   })
   default = {
     gid = -2

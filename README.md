@@ -1,6 +1,6 @@
 # terraform-aws-efs
 
-[![Build Status](https://github.com/JamesWoolfenden/terraform-aws-efs/workflows/Verify%20and%20Bump/badge.svg?branch=master)](https://github.com/JamesWoolfenden/terraform-aws-efs)
+[![Build Status](https://github.com/JamesWoolfenden/terraform-aws-efs/workflows/Verify/badge.svg?branch=master)](https://github.com/JamesWoolfenden/terraform-aws-efs)
 [![Latest Release](https://img.shields.io/github/release/JamesWoolfenden/terraform-aws-efs.svg)](https://github.com/JamesWoolfenden/terraform-aws-efs/releases/latest)
 [![GitHub tag (latest SemVer)](https://img.shields.io/github/tag/JamesWoolfenden/terraform-aws-efs.svg?label=latest)](https://github.com/JamesWoolfenden/terraform-aws-efs/releases/latest)
 ![Terraform Version](https://img.shields.io/badge/tf-%3E%3D0.14.0-blue.svg)
@@ -29,6 +29,8 @@ module "efs" {
 }
 ```
 
+## Detailed Notes
+
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Requirements
 
@@ -48,6 +50,7 @@ No modules.
 
 | Name | Type |
 |------|------|
+| [aws_efs_access_point.pike](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/efs_access_point) | resource |
 | [aws_efs_file_system.sharedstore](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/efs_file_system) | resource |
 | [aws_efs_mount_target.mount](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/efs_mount_target) | resource |
 
@@ -58,11 +61,14 @@ No modules.
 | <a name="input_common_tags"></a> [common\_tags](#input\_common\_tags) | This is to help you add tags to your cloud objects | `map(any)` | n/a | yes |
 | <a name="input_efs"></a> [efs](#input\_efs) | To create a shared file share | <pre>object({<br>    creation_token                  = string<br>    transition_to_ia                = string<br>    kms_key_id                      = string<br>    encrypted                       = bool<br>    performance_mode                = string<br>    provisioned_throughput_in_mibps = number<br>    throughput_mode                 = string<br>  })</pre> | n/a | yes |
 | <a name="input_mounts"></a> [mounts](#input\_mounts) | Subnets to create mount points for | `list(any)` | <pre>[<br>  {<br>    "ip_address": "",<br>    "security_groups": [],<br>    "subnet_id": ""<br>  }<br>]</pre> | no |
+| <a name="input_posix_user"></a> [posix\_user](#input\_posix\_user) | n/a | <pre>object({<br>    gid = number<br>    uid = number<br>  })</pre> | <pre>{<br>  "gid": -2,<br>  "uid": -2<br>}</pre> | no |
+| <a name="input_root_path"></a> [root\_path](#input\_root\_path) | n/a | `string` | `"/data"` | no |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
+| <a name="output_access_point"></a> [access\_point](#output\_access\_point) | n/a |
 | <a name="output_mount"></a> [mount](#output\_mount) | n/a |
 | <a name="output_sharedstore"></a> [sharedstore](#output\_sharedstore) | n/a |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
@@ -97,8 +103,11 @@ resource "aws_iam_policy" "terraform_pike" {
             "Sid": "VisualEditor1",
             "Effect": "Allow",
             "Action": [
+                "elasticfilesystem:CreateAccessPoint",
                 "elasticfilesystem:CreateFileSystem",
+                "elasticfilesystem:DeleteAccessPoint",
                 "elasticfilesystem:DeleteFileSystem",
+                "elasticfilesystem:DescribeAccessPoints",
                 "elasticfilesystem:DescribeFileSystems",
                 "elasticfilesystem:DescribeLifecycleConfiguration",
                 "elasticfilesystem:DescribeMountTargets",
