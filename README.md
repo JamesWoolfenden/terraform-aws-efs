@@ -105,12 +105,19 @@ resource "aws_iam_policy" "terraform_pike" {
             "Action": [
                 "elasticfilesystem:CreateAccessPoint",
                 "elasticfilesystem:CreateFileSystem",
+                "elasticfilesystem:CreateMountTarget",
                 "elasticfilesystem:DeleteAccessPoint",
                 "elasticfilesystem:DeleteFileSystem",
+                "elasticfilesystem:DeleteMountTarget",
+                "elasticfilesystem:DeleteTags",
                 "elasticfilesystem:DescribeAccessPoints",
                 "elasticfilesystem:DescribeFileSystems",
                 "elasticfilesystem:DescribeLifecycleConfiguration",
+                "elasticfilesystem:DescribeMountTargetSecurityGroups",
                 "elasticfilesystem:DescribeMountTargets",
+                "elasticfilesystem:ListTagsForResource",
+                "elasticfilesystem:ModifyMountTargetSecurityGroups",
+                "elasticfilesystem:PutLifecycleConfiguration",
                 "elasticfilesystem:TagResource",
                 "elasticfilesystem:UntagResource"
             ],
@@ -120,6 +127,17 @@ resource "aws_iam_policy" "terraform_pike" {
         },
         {
             "Sid": "VisualEditor2",
+            "Effect": "Allow",
+            "Action": [
+                "iam:CreateServiceLinkedRole",
+                "iam:PassRole"
+            ],
+            "Resource": [
+                "*"
+            ]
+        },
+        {
+            "Sid": "VisualEditor3",
             "Effect": "Allow",
             "Action": [
                 "kms:CreateGrant",
