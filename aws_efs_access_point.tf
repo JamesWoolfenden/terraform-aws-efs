@@ -8,12 +8,10 @@ resource "aws_efs_access_point" "pike" {
     uid = var.posix_user.uid
   }
 }
-
 variable "root_path" {
   type    = string
   default = "/data"
 }
-
 variable "posix_user" {
   type = object({
     gid = number

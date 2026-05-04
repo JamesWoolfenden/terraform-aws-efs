@@ -2,7 +2,6 @@ variable "common_tags" {
   description = "This is to help you add tags to your cloud objects"
   type        = map(any)
 }
-
 variable "efs" {
   description = "To create a shared file share"
   type = object({
@@ -15,7 +14,6 @@ variable "efs" {
     throughput_mode                 = string
   })
 }
-
 variable "mounts" {
   type        = list(any)
   description = "Subnets to create mount points for"
