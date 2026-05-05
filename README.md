@@ -1,6 +1,6 @@
 # terraform-aws-efs
 
-[![Build Status](https://github.com/JamesWoolfenden/terraform-aws-efs/workflows/Verify/badge.svg?branch=master)](https://github.com/JamesWoolfenden/terraform-aws-efs)
+[![Build Status](https://github.com/JamesWoolfenden/terraform-aws-efs/workflows/Verify/badge.svg?branch=main)](https://github.com/JamesWoolfenden/terraform-aws-efs)
 [![Latest Release](https://img.shields.io/github/release/JamesWoolfenden/terraform-aws-efs.svg)](https://github.com/JamesWoolfenden/terraform-aws-efs/releases/latest)
 [![GitHub tag (latest SemVer)](https://img.shields.io/github/tag/JamesWoolfenden/terraform-aws-efs.svg?label=latest)](https://github.com/JamesWoolfenden/terraform-aws-efs/releases/latest)
 ![Terraform Version](https://img.shields.io/badge/tf-%3E%3D0.14.0-blue.svg)
